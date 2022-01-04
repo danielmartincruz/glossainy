@@ -19,6 +19,7 @@ usethis::use_package( "thinkr" )
 usethis::use_package( "DT" )
 usethis::use_package( "devtools" )
 usethis::use_package( "shiny" )
+usethis::use_package( "data.table" )
 
 
 ## Add modules ----

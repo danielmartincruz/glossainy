@@ -4,14 +4,36 @@
 #'     DO NOT REMOVE.
 #' @import shiny
 #' @noRd
-app_ui <- function(request) {
+app_ui <- function(request, japo_table) {
+
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
-    # List the first level UI elements here 
-    fluidPage(
-      h1("japones")
+    
+    shinydashboardPlus::dashboardPagePlus(
+      
+      header = shinydashboardPlus::dashboardHeaderPlus(
+        title = "Japones",
+        enable_rightsidebar = FALSE
+      ),
+      # Create our navigation menu that links to each of the tabs we defined
+      sidebar = shinydashboard::dashboardSidebar(
+        shinydashboard::sidebarMenu(
+          # Setting id makes input$tabs give the tabName of currently-selected tab
+          id = "tabs",
+          shinydashboard::menuItem("Affiliates", tabName = "af", icon = icon("affiliatetheme"))
+        )
+      ),
+      # Show the appropriate tab's content in the main body of our dashboard when we select it
+      body = shinydashboard::dashboardBody(
+        shinydashboard::tabItems(
+          shinydashboard::tabItem("af", mod_tabla_base_ui("tabula_ui"))
+        )
+      ),
+      rightsidebar = NULL,
+      title = "nihontool"
     )
+    
   )
 }
 
