@@ -6,15 +6,15 @@
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options
 run_app <- function(
-  data_path = NULL,
+  link_excel = NULL,
   ...
 ) {
   
-  if(is.null(data_path) || data_path == "") {
-    data_path <- '/Users/danielmartincruz/Documents/japones/data-raw'
+  if(is.null(link_excel) || link_excel == "") {
+    link_excel <- '/Users/danielmartincruz/Documents/japones/data-raw'
   }
   
-  data_list <- data_formation(data_path)
+  data_list <- data_formation(link_excel)
   
   server_func <- app_server_factory(data_list)
   
