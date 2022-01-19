@@ -21,13 +21,17 @@ app_ui <- function(request, japo_table) {
         shinydashboard::sidebarMenu(
           # Setting id makes input$tabs give the tabName of currently-selected tab
           id = "tabs",
-          shinydashboard::menuItem("Affiliates", tabName = "af", icon = icon("affiliatetheme"))
+          shinydashboard::menuItem("Japanese", tabName = "af", icon = icon("affiliatetheme")),
+          shinydashboard::menuItem("Dictionary", tabName = "dct", icon = icon("affiliatetheme"))
+          
         )
       ),
       # Show the appropriate tab's content in the main body of our dashboard when we select it
       body = shinydashboard::dashboardBody(
         shinydashboard::tabItems(
-          shinydashboard::tabItem("af", mod_tabla_base_ui("tabula_ui"))
+          shinydashboard::tabItem("af", mod_tabla_base_ui("tabula_ui", japo_table)),
+          shinydashboard::tabItem("dct", mod_dictionary_ui("dictionary_ui", japo_table))
+          
         )
       ),
       rightsidebar = NULL,

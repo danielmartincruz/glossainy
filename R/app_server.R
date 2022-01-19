@@ -22,6 +22,7 @@ app_server_factory <- function(data) {
   
   new_app_server <- function( input, output, session) {
     callModule(mod_tabla_base_server, "tabula_ui", data[[1]])
+    callModule(mod_dictionary_server, "dictionary_ui", data[[1]])
     
   }
   
