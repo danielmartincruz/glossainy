@@ -10,7 +10,6 @@
 #' @import DT
 #' @import magrittr
 #' @import shinydashboard
-#' @import shi18ny
 
 #' @importFrom shiny NS tagList 
 mod_tabla_base_ui <- function(id, japo_table){

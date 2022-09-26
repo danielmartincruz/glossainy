@@ -3,8 +3,15 @@
 # Or use the blue button on top of this file
 
 #
+options(encoding = "UTF-8")
+# options(
+#   gargle_oauth_cache = ".secrets",
+#   gargle_oauth_email = "nadrieci@gmail.com"
+# )
 
 pkgload::load_all(export_all = FALSE,helpers = FALSE,attach_testthat = FALSE)
 options( "golem.app.prod" = TRUE)
 link_excel <- Sys.getenv("LINK_EXCEL")
+link_excel <- "https://docs.google.com/spreadsheets/d/1ABE1eIsWzC_koKSSarSQ4mBZM-c8_lAb5hgwN3qxIxM/edit#gid=0"
 japones::run_app(link_excel) # add parameters here (if any)
+# rsconnect::deployApp('/Users/danielmartincruz/Documents/japones/glossainy')
