@@ -5,7 +5,7 @@ account: nadrieci
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7107989
-bundleId: 6336290
+bundleId: 6339875
 url: https://nadrieci.shinyapps.io/glossainy/
-when: 1664130833.92028
-lastSyncTime: 1664130833.92029
+when: 1664215232.39222
+lastSyncTime: 1664215232.39223
