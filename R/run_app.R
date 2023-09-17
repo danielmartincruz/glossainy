@@ -15,7 +15,7 @@ run_app <- function(
   }
   
   data_list <- data_formation(link_excel)
-  
+
   server_func <- app_server_factory(data_list)
   
   ui <- app_ui(NULL, data_list[[1]])

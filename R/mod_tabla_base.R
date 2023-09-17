@@ -32,7 +32,15 @@ mod_tabla_base_ui <- function(id, japo_table){
                    inputId = ns("columnas_filter"),
                    label = "Columnas mostradas", choices = unique(names(japo_table))[unique(names(japo_table)) != "id"],
                    selected = unique(names(japo_table))[unique(names(japo_table)) != "id"]
+                 ),
+                 
+                 selectizeInput(
+                   inputId = ns("leccion_filter"),
+                   label = "Lección", choices = sort_custom_numeric_character(japo_table, "Lesson"),
+                   selected = NULL,
+                   multiple = TRUE
                  )
+                 
              )
       )
       )
@@ -49,15 +57,17 @@ mod_tabla_base_ui <- function(id, japo_table){
 mod_tabla_base_server <- function(input, output, session, data){
   ns <- session$ns
   filtered_japo_table <- reactive({
-    data <- filter_jap_table(data, columnas_filter = input$columnas_filter, type_filter = input$type_filter)
+    data <- filter_jap_table(data, columnas_filter = input$columnas_filter,
+                             type_filter = input$type_filter, leccion_filter = input$leccion_filter)
     return(data)
   })
   
   output$japo_table <- DT::renderDT({
     temp_data <- filtered_japo_table()
 
-    final_table <- get_datatable(temp_data)
-              
+    columns_2_hide <- c("id")
+    final_table <- get_datatable(temp_data, columns_2_hide) 
+      
     return(final_table)
   })
   

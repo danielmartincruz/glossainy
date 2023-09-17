@@ -4,10 +4,7 @@
 
 #
 options(encoding = "UTF-8")
-# options(
-#   gargle_oauth_cache = ".secrets",
-#   gargle_oauth_email = "nadrieci@gmail.com"
-# )
+
 
 pkgload::load_all(export_all = FALSE,helpers = FALSE,attach_testthat = FALSE)
 options( "golem.app.prod" = TRUE)
